@@ -11,7 +11,7 @@ Both are provided in package.json and can be installed via:
 
 ## API
 
-Start your sever using `node /filepathToServer.js/`
+Start your server using `node /filepathToServer.js/`
 
 ### Entry Point
 
