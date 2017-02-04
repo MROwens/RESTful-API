@@ -15,9 +15,9 @@ Start your sever using `node /filepathToServer.js/`
 
 ### Entry Point
 
-The entry point to URL-Shortener is at http://localhost:3000/api/v1/url
+The entry point to URL-Shortener is at `/api/v1/url`
 
-Using the JSON format:
+Using POST and JSON for input:
 
 `{
   "origin": "linkToBeShortened"
