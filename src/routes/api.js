@@ -1,6 +1,6 @@
 module.exports = (express) => {
 
-  var urlGenerator = require('../src/modules/url-shortener.js');
+  var urlGenerator = require('../modules/url-shortener.js');
 
   // Instantiate express Router method
   var router = express.Router();
