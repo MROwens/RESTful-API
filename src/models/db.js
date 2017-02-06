@@ -11,3 +11,17 @@ var sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.
   },
   logging: false,
 });
+
+var urlBank = sequelize.define('url', {
+  url: {
+    type: Sequelize.STRING,
+  },
+  shortUrl: {
+    type: Sequelize.STRING,
+  }
+});
+
+sequelize.sync();
+
+exports.sequelize = sequelize;
+exports.url = url;
