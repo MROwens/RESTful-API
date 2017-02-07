@@ -1,6 +1,9 @@
-module.exports = (express) => {
+var url = require('../models/url');
+var urlGenerator = require('../modules/url-shortener.js');
 
-  var urlGenerator = require('../modules/url-shortener.js');
+
+
+module.exports = (express) => {
 
   // Instantiate express Router method
   var router = express.Router();
@@ -19,6 +22,16 @@ module.exports = (express) => {
       res.json({Origin: "No URL Provided", New: "No URL Provided"});
     }else {
       res.json({Origin: url, New: generateShortUrl});
+    }
+  });
+
+  // Create
+  router.post('/urls', (req,res) => {
+    var generateShortUrl = urlGenerator.urlGen(6);
+    url.create({url: req.body.origin, shortUrl: generateShortUrl}, (err) =>{
+      res.status(500).json(err);
+    }), (data) => {
+      res.status(200).json(data);
     }
   });
 
