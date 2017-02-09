@@ -28,12 +28,16 @@ module.exports = (express) => {
   // Create
   router.post('/urls', (req,res) => {
     var generateShortUrl = urlGenerator.urlGen(6);
-    url.create({url: req.body.origin, shortUrl: generateShortUrl}, (err) =>{
+    var createShortUrl = {url: req.body.origin, shortUrl: generateShortUrl};
+    url.create(createShortUrl, (err) =>{
       res.status(500).json(err);
-    }), (data) => {
-      res.status(200).json(data);
+    }), (createdUrl) => {
+      res.status(200).json(createdUrl);
     }
   });
+
+  // Find All
+  
 
   return router;
 }
