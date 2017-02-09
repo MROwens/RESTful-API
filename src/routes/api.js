@@ -46,6 +46,13 @@ module.exports = (express) => {
     }
   });
 
+  // Find One
+  router.get('/urls/:id', (req,res) => {
+
+    
+
+  });
+
 
   return router;
 }
