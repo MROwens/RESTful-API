@@ -19,9 +19,9 @@ module.exports = (express) => {
     var generateShortUrl = urlGenerator.urlGen(6);
     // Validation
     if(url === ''){
-      res.json({Origin: "No URL Provided", New: "No URL Provided"});
+      res.json({origin: "No URL Provided", new: "No URL Provided"});
     }else {
-      res.json({Origin: url, New: generateShortUrl});
+      res.json({oigin: url, new: generateShortUrl});
     }
   });
 
@@ -37,7 +37,7 @@ module.exports = (express) => {
   });
 
   // Find All
-  
+
 
   return router;
 }

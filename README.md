@@ -27,6 +27,6 @@ Using POST and JSON for input:
 
 The output will be in the JSON format:
 `{
-  "Origin": "linkToBeShortened",
-  "New": "shortenedLink"
+  "origin": "linkToBeShortened",
+  "new": "shortenedLink"
 }`
