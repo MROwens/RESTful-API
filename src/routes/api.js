@@ -28,15 +28,23 @@ module.exports = (express) => {
   // Create
   router.post('/urls', (req,res) => {
     var generateShortUrl = urlGenerator.urlGen(6);
-    var createShortUrl = {url: req.body.origin, shortUrl: generateShortUrl};
-    url.create(createShortUrl, (err) =>{
-      res.status(500).json(err);
-    }), (createdUrl) => {
+    var saveUrl = {url: req.body.origin, shortUrl: generateShortUrl};
+    url.create(saveUrl, (createdUrl) =>{
       res.status(200).json(createdUrl);
+    }), (err) => {
+      res.status(500).json(err);
     }
   });
 
   // Find All
+
+  router.get('/urls', (req,res) => {
+    url.findAll({where: {url: {$like: 'www.%'}}}, (data) => {
+      res.status(200).json(data);
+    }), (err) => {
+      res.status(500).json(err);
+    }
+  });
 
 
   return router;
