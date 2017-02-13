@@ -1,9 +1,10 @@
 // Packages needed
-var express = require("express");
-var bodyParser = require("body-parser");
-var app = express();
+const express = require('express');
+const bodyParser = require('body-parser');
 
-var port = 3000;
+const app = express();
+
+const port = 3000;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -11,9 +12,9 @@ app.use(bodyParser.urlencoded({
 }));
 
 // Linking to routes
-app.use("/api/v1", require('./routes/api.js')(express));
+app.use('/api/v1', require('./routes/api.js')(express));
 
 // Listen on specified port
 app.listen(port, () => {
-  console.log("Live");
+  console.log('Live');
 });

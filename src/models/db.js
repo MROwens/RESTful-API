@@ -1,7 +1,7 @@
-var Sequelize = require('sequelize');
+const Sequelize = require('sequelize');
 require('dotenv').config();
 
-var sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
+const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
   host: process.env.DB_HOST,
   dialect: process.env.DB_SCHEMA,
   port: process.env.DB_PORT,
@@ -13,13 +13,13 @@ var sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.
   logging: false,
 });
 
-var urlBank = sequelize.define('url', {
+const urlBank = sequelize.define('url', {
   url: {
     type: Sequelize.STRING,
   },
   shortUrl: {
     type: Sequelize.STRING,
-  }
+  },
 });
 
 sequelize.sync();
