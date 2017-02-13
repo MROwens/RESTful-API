@@ -6,16 +6,16 @@ module.exports = (express) => {
   // Instantiate express Router method
   const router = express.Router();
   // Entry point for API
-  router.post('/url', (req,res) => {
+  router.post('/url', (req, res) => {
     // Parse the body for origin link
-    const url = req.body.origin;
+    const bodyUrl = req.body.origin;
 
     const generateShortUrl = urlGenerator.urlGen(6);
     // Validation
     if (url === '') {
       res.json({ origin: 'No URL Provided", new: "No URL Provided' });
     } else {
-      res.json({ oigin: url, new: generateShortUrl });
+      res.json({ oigin: bodyUrl, new: generateShortUrl });
     }
   });
 
@@ -27,12 +27,12 @@ module.exports = (express) => {
       res.status(200).json(createdUrl);
     }), (err) => {
       res.status(500).json(err);
-    }
+    };
   });
 
   // Find All
 
-  router.get('/urls', (req,res) => {
+  router.get('/urls', (req, res) => {
     url.findAll({ where: { url: { $like: 'www.%' } } }, (data) => {
       res.status(200).json(data);
     }), (err) => {
